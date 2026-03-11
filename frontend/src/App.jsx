@@ -6,7 +6,7 @@ import StudentTable from "./components/studentTable.jsx";
 import { exportToExcel } from "./utils/exportExcel.js";
 
 function App() {
-  const API = "https://student-crud-backend-rzee.onrender.com";
+  const API = "https://student-crud-backend-rzee.onrender.com/students";
 
   const [students, setStudents] = useState([]);
   const [selectedStudents, setSelectedStudents] = useState([]);
@@ -14,13 +14,16 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
 
-  const fetchStudents = async () => {
+ const fetchStudents = async () => {
+  try {
     const res = await axios.get(API);
-
     setStudents(res.data);
-
+  } catch (error) {
+    console.error("Error fetching students:", error);
+  } finally {
     setLoading(false);
-  };
+  }
+};
 
   useEffect(() => {
     fetchStudents();
