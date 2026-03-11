@@ -6,7 +6,7 @@ import StudentTable from "./components/studentTable.jsx";
 import { exportToExcel } from "./utils/exportExcel.js";
 
 function App() {
-  const API = "https://student-crud-backend-3wf2.onrender.com";
+  const API = "https://student-crud-backend-rzee.onrender.com";
 
   const [students, setStudents] = useState([]);
   const [selectedStudents, setSelectedStudents] = useState([]);
